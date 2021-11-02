@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json()); // para que solo acepte json el servidor
 app.use(cors()); // para que el servidor reciba peticiones e interactue con http postman y demas
 app.use("/api/producto", producto);
-
+//poner siempre despues del cors las rutas
 app.listen(process.env.PORT, () =>
   console.log("Backend server running on port: " + process.env.PORT)
 );

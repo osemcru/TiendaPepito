@@ -2,11 +2,11 @@ import producto from "../models/producto.js";
 
 const registerProducto = async (req, res) => {
   if (!req.body.name || !req.body.precio || !req.body.stock)
-    return res.status(400).send("Incomplete data");
+    return res.status(400).send("Error: Incomplete data");
 
   const existingProducto = await producto.findOne({ name: req.body.name });
   if (existingProducto)
-    return res.status(400).send("The producto already exist");
+    return res.status(400).send("Error: The producto already exist");
 
   const productoSchema = new producto({
     name: req.body.name,
